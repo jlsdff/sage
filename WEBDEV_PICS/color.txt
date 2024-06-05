@@ -1,0 +1,4 @@
+bg color: #F5F4F2
+
+--font colors--
+main: #3B5326

@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap');
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Jost', sans-serif; /* Apply Jost font as the default font */
+    background-color: #F5F4F2;
+}
+
+.navbar {
+    background-color: #3B5326;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 20px;
+}
+
+.navbar-logo {
+    display: flex;
+    align-items: center;
+    background-color: #3B5326;
+
+}
+
+.navbar-logo img {
+    height: 70px;
+    margin-left: 90px;
+    margin-top: 12px;
+    margin-bottom: 5px;
+    width: auto;
+    background-color: #3B5326;
+}
+
+
+
+
+.navbar-links {
+    display: flex;
+    background-color: #3B5326;
+    margin-left: -13px;
+}
+
+.navbar-links a {
+    position: relative;
+    text-decoration: none;
+    margin-left: 60px;
+    color: white;
+    font-size: 17px;
+    background-color: #3B5326;
+    letter-spacing: 0.5px;
+}
+
+
+
+.navbar-links a:after {
+    content: "";
+    position: absolute;
+    background-color: #B8BF4F;
+    height: 3px;
+    width: 0;
+    left: 0;
+    bottom: -4px;
+    transition: 0.3s;
+}
+
+a:hover{
+    color: #B8BF4F;
+}
+
+a:hover::after{
+    width: 100%;
+}
+
+
+.navbar-search {
+    flex-grow: 1;
+    text-align: center;
+    background-color: #3B5326;
+}
+
+.navbar-search input[type="text"] {
+    padding: 8px;
+    width: 75%;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.342);
+    border-color: #3B5326;
+
+}
+
+.navbar-actions {
+    display: flex;
+}
+
+.navbar-actions a {
+    color: #3B5326;
+    text-decoration: none;
+    padding: 0 15px;
+}
+
+
+
+/* ICONS RIGHT SIDE */
+
+.navbar-links-1 {
+    display: flex;
+    background-color: #3B5326;
+    margin-right: 5%;
+
+}
+
+.navbar-links-1 a {
+    position: relative;
+    color: white;
+    text-decoration: none;
+    padding: 0 17px;
+    margin-right: 10px;
+    background-color: #3B5326;
+    display: flex;
+}
+
+.navbar-links-1 a:after {
+    content: "";
+    background-color: #B8BF4F;
+    height: 3px;
+    width: 0;
+    left: 0;
+    bottom: -4px;
+    transition: 0.3s;
+}
+
+a:hover{
+    color: #B8BF4F;
+}
+
+a:hover::after{
+    width: 100%;
+}
+
+.navbar-links-1 img {
+    height: 19px;
+    margin-right: 9px;
+    background-color: #3B5326;
+}
+
+
+
+
