@@ -2,22 +2,40 @@
 
 include '../Welcome-content/db.php';
 
+session_start();
 $product_id = $_GET['id'];
+$user_id = $_SESSION['user_id'];
+
+
+if(empty($user_id)){
+  // TODO: REFACTOR THIS
+  header('location:/sage/main-category/main_content.php'); 
+}
 
 if (empty($product_id)) {
   // redirect to main category if product id is not set
   header('location:/sage/main-category/main_content.php');
 }
 
-if (isset($_POST['basket'])) {
-  echo "Add to basket";
+if (isset($_POST['basket']) ) {
   echo $_POST['basket'];
 
-  
-  
+  $quantity = $_POST['quantity'];
+
+  echo "USER ID: $user_id <br>";
+  echo "PRODUCT ID: $product_id <br>";
+  echo "QUANTITY: $quantity <br>";
+
+  $query = "INSERT INTO cart (user_id, product_id, quantity) VALUES ($user_id ,$product_id, $quantity)";
+
+  if ($conn->query($query) === TRUE) {
+    echo "New record created successfully";
+  } else {
+    echo "Error: " . $query . "<br>" . $conn->error;
+  }
 }
 
-if(isset($_POST['buy'])){
+if (isset($_POST['buy'])) {
   echo "BUY NOW";
   echo $_POST['buy'];
 }
@@ -47,7 +65,7 @@ $image = 'data:image/jpeg;base64,' . base64_encode($product['image']);
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Living</title>
-  <link href="../css/product-description.css" rel="stylesheet" />
+  <link href="../css/output.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -101,7 +119,7 @@ $image = 'data:image/jpeg;base64,' . base64_encode($product['image']);
 
             <div class="flex flex-col items-center justify-center">
               <p class="text-2xl font-bold text-primary-200" id="quantity">1</p>
-              <input type="number" name="quantity" id="quantity-input" class="hidden">
+              <input type="number" name="quantity" id="quantity-input" class="hidden" value="1">
               <h3 class="text-xl font-bold text-primary-200">Quantity</h3>
             </div>
             <button class="p-2" id="increment" type="button">
@@ -112,10 +130,44 @@ $image = 'data:image/jpeg;base64,' . base64_encode($product['image']);
           </div>
 
           <div class="flex items-center justify-between py-2">
-            <button class="px-4 py-2 font-bold text-white rounded-lg bg-primary-100" id="add-to-basket" name="basket" value="add_to_basket">
-              Add to basket
+
+            <?php
+
+            $user_id = $_SESSION['user_id'];
+
+            $query = "SELECT * FROM cart WHERE user_id = $user_id AND product_id = $product_id";
+            $is_in_cart = $conn->query($query);
+            $is_in_cart = $is_in_cart->num_rows > 0;
+
+            $class;
+            if ($is_in_cart) {
+              $class = "bg-primary-100";
+            } else {
+              $class = "";
+            }
+
+            ?>
+
+            <button 
+              type="submit" 
+              class="px-4 py-2 font-bold text-white rounded-lg cursor-pointer bg-primary-100 disabled:opacity-50 disabled:cursor-not-allowed" 
+              id="add-to-basket" 
+              name="basket" 
+              value="add_to_basket" 
+              <?php
+                if ($is_in_cart) {
+                  echo "disabled";
+                } 
+                ?>>
+              <?php
+              if ($is_in_cart) {
+                echo "Already in basket";
+              } else {
+                echo "Add to basket";
+              }
+              ?>
             </button>
-            <button class="px-4 py-2 font-bold text-white rounded-lg bg-primary-100" id="buy-now" name="buy" value="buy-now">
+            <button type="submit" class="px-4 py-2 font-bold text-white rounded-lg bg-primary-100" id="buy-now" name="buy" value="buy-now">
               Buy now
             </button>
           </div>
