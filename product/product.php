@@ -9,6 +9,21 @@ if (empty($product_id)) {
   header('location:/sage/main-category/main_content.php');
 }
 
+if (isset($_POST['basket'])) {
+  echo "Add to basket";
+  echo $_POST['basket'];
+
+  
+  
+}
+
+if(isset($_POST['buy'])){
+  echo "BUY NOW";
+  echo $_POST['buy'];
+}
+
+
+
 $product = $conn->query("SELECT * FROM products WHERE id=$product_id");
 
 // redirect to main category if product does not exist
@@ -75,7 +90,7 @@ $image = 'data:image/jpeg;base64,' . base64_encode($product['image']);
           <h3 class="text-primary-200">Product price</h3>
         </div>
 
-        <form action="" method="post">
+        <form action="product.php?id=<?php echo $product_id; ?>" method="post">
 
           <div class="flex items-center justify-center gap-4">
             <button class="p-2" id="decrement" type="button">
@@ -97,10 +112,10 @@ $image = 'data:image/jpeg;base64,' . base64_encode($product['image']);
           </div>
 
           <div class="flex items-center justify-between py-2">
-            <button class="px-4 py-2 font-bold text-white rounded-lg bg-primary-100" id="add-to-basket" name="submit" value="add_to_basket">
+            <button class="px-4 py-2 font-bold text-white rounded-lg bg-primary-100" id="add-to-basket" name="basket" value="add_to_basket">
               Add to basket
             </button>
-            <button class="px-4 py-2 font-bold text-white rounded-lg bg-primary-100" id="buy-now">
+            <button class="px-4 py-2 font-bold text-white rounded-lg bg-primary-100" id="buy-now" name="buy" value="buy-now">
               Buy now
             </button>
           </div>
