@@ -1,6 +1,23 @@
 <?php
 
+session_start();
 include '../Welcome-content/db.php';
+include '../utils/cart.php';
+
+if (isset($_POST['increment'])) {
+  $id = $_POST['increment'];
+  incrementItemCart($id);
+}
+
+if (isset($_POST['decrement'])) {
+  $id = $_POST['decrement'];
+  decrementItemCart($id);
+}
+
+if(isset($_POST['delete'])){
+  $id = $_POST['delete'];
+  deleteItemCart($id);
+}
 
 $minus = '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
 <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14" />
@@ -11,7 +28,6 @@ $plus = '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
 </svg>
 ';
 
-session_start();
 
 $user_id = $_SESSION['user_id'];
 
@@ -58,7 +74,7 @@ if ($carts->num_rows > 0) {
 
   <main>
     <section class="flex items-center justify-center">
-      <form action="">
+      <form action="basket.php" method="post">
         <table class="table-fixed">
           <thead class="text-xl">
             <tr>
@@ -75,6 +91,7 @@ if ($carts->num_rows > 0) {
           <tbody>
             <?php
             while ($product = $carts->fetch_array()) {
+              $id = $product['id'];
               $product_id = $product['product_id'];
               $product_name = $product['name'];
               $product_price = $product['price'];
@@ -82,7 +99,7 @@ if ($carts->num_rows > 0) {
               $product_quantity = $product['quantity'];
 
               echo "
-                <tr class='mt-2'>
+                <tr class='mt-2 __item'>
               <td><input type='checkbox' name='include' id=''></td>
               <td>
                 <div class='flex items-center justify-start gap-2'>
@@ -92,16 +109,16 @@ if ($carts->num_rows > 0) {
                   <h2>{$product_name}</h2>
                 </div>
               </td>
-              <td>₱{$product_price}</td>
+              <td class='__product_price'>₱{$product_price}</td>
               <td> 
                 <div class='flex items-center justify-center gap-2'>
-                  <button class='' name='decrement' type='submit' value='{$product_id}'>{$minus}</button> 
+                  <button class='' name='decrement' type='submit' value='{$id}'>{$minus}</button> 
                   <span class='text-lg'>{$product_quantity}</span> 
-                  <button class='' name='increment' type='submit' value='{$product_id}'>{$plus}</button> 
+                  <button class='' name='increment' type='submit' value='{$id}'>{$plus}</button> 
                 </div> 
               </td>
-              <td id='total-price'>₱</td>
-              <td><input type='submit' name='delete' value='Delete'></td>
+              <td class='__total_price'>₱</td>
+              <td> <button type='submit' name='delete' value='{$id}'>Delete</button> </td>
             </tr>
             ";
             }
