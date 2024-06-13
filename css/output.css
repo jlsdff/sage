@@ -731,6 +731,10 @@ video {
   margin-top: 1rem;
 }
 
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
 .box-border {
   box-sizing: border-box;
 }
@@ -852,6 +856,10 @@ video {
   min-height: 100vh;
 }
 
+.w-16 {
+  width: 4rem;
+}
+
 .w-32 {
   width: 8rem;
 }
@@ -878,6 +886,10 @@ video {
 
 .w-screen {
   width: 100vw;
+}
+
+.min-w-60 {
+  min-width: 15rem;
 }
 
 .flex-shrink {
@@ -1794,6 +1806,10 @@ video {
 
 .border {
   border-width: 1px;
+}
+
+.border-2 {
+  border-width: 2px;
 }
 
 .border-x {

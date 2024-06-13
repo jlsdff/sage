@@ -111,6 +111,6 @@ if(isset($_POST['submit'])){
             </div>
         </form>
     </div>
-    <script src="signup2.js"></script>
+    <script src="../js/signup2.js"></script>
 </body>
 </html>

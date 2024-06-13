@@ -36,11 +36,12 @@ $result = $conn->query($query);
             <a href="main_content.php"><img src="../WEBDEV_PICS/sage.png" alt="Logo"></a>
 
             <div class="navbar-links">
-                <a href="main_living.php">Living</a>
-                <a href="main_health.php">Health</a>
-                <a href="main_clothing.php">Clothing</a>
-                <a href="main_accessories.php">Accessories</a>
+                <a href="../main-category/main_living.php">Living</a>
+                <a href="../main-category/main_health.php">Health</a>
+                <a href="../main-category/main_clothing.php">Clothing</a>
+                <a href="../main-category/main_accessories.php">Accessories</a>
             </div>
+            
 
         </div>
 

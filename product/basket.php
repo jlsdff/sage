@@ -14,7 +14,7 @@ if (isset($_POST['decrement'])) {
   decrementItemCart($id);
 }
 
-if(isset($_POST['delete'])){
+if (isset($_POST['delete'])) {
   $id = $_POST['delete'];
   deleteItemCart($id);
 }
@@ -73,83 +73,112 @@ if ($carts->num_rows > 0) {
   </header>
 
   <main>
-    <section class="flex items-center justify-center">
-      <form action="basket.php" method="post">
-        <table class="table-fixed">
-          <thead class="text-xl">
-            <tr>
-              <th>
-                <div class="p-2"></div>
-              </th>
-              <th>Product</th>
-              <th>Unit Price</th>
-              <th>Quantity</th>
-              <th>Total Price</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            <?php
-            while ($product = $carts->fetch_array()) {
-              $id = $product['id'];
-              $product_id = $product['product_id'];
-              $product_name = $product['name'];
-              $product_price = $product['price'];
-              $product_image = 'data:image/jpeg;base64,' . base64_encode($product['image']);
-              $product_quantity = $product['quantity'];
 
-              echo "
-                <tr class='mt-2 __item'>
-              <td><input type='checkbox' name='include' id=''></td>
-              <td>
-                <div class='flex items-center justify-start gap-2'>
-                  <div class='object-contain w-32 aspect-square'>
-                    <img class='' src='{$product_image}' alt=''>
-                  </div>
-                  <h2>{$product_name}</h2>
+    <section class="px-8 py-4 sm:px-24 sm:py-16">
+
+      <!-- TABLE HEADER -->
+      <form action="basket.php" method="post" class="table w-full">
+        <div class="table-header-group">
+          <div class="table-row">
+            <div class="table-cell text-left font-bold  ">
+              <!-- <div class="w-16 border border-2"></div> -->
+            </div>
+            <div class="table-cell text-left font-bold ">Product</div>
+            <div class="table-cell text-left font-bold ">Unit Price</div>
+            <div class="table-cell text-left font-bold ">Quantity</div>
+            <div class="table-cell text-left font-bold ">Total Price</div>
+            <div class="table-cell text-left font-bold ">Actions</div>
+          </div>
+        </div>
+
+        <!-- Table Body -->
+        <div class="table-row-group spacing-y-2 ">
+          <?php
+          while ($product = $carts->fetch_array()) {
+            $id = $product['id'];
+            $product_id = $product['product_id'];
+            $product_name = $product['name'];
+            $product_price = $product['price'];
+            $product_image = 'data:image/jpeg;base64,' . base64_encode($product['image']);
+            $product_quantity = $product['quantity'];
+
+            echo "
+            <div class='table-row __item'>
+            <div class='table-cell align-middle text-left'><input type='checkbox' name='include' id=''></div>
+            <div class='table-cell align-middle text-left'>
+              <div class='flex items-center justify-start gap-2 min-w-60'>
+                <div class='object-contain w-32 aspect-square'>
+                  <img class='' src='{$product_image}' alt=''>
                 </div>
-              </td>
-              <td class='__product_price'>₱{$product_price}</td>
-              <td> 
-                <div class='flex items-center justify-center gap-2'>
-                  <button class='' name='decrement' type='submit' value='{$id}'>{$minus}</button> 
-                  <span class='text-lg'>{$product_quantity}</span> 
-                  <button class='' name='increment' type='submit' value='{$id}'>{$plus}</button> 
-                </div> 
-              </td>
-              <td class='__total_price'>₱</td>
-              <td> <button type='submit' name='delete' value='{$id}'>Delete</button> </td>
-            </tr>
+                <h2>{$product_name}</h2>
+              </div>
+            </div>
+            <div class='table-cell align-middle text-left  '>
+              <span class='__product_price'>₱{$product_price}</span>
+            </div>
+            <div class='table-cell align-middle text-left '>
+              <div class='flex items-center justify-start gap-2'>
+                <button class='' name='decrement' type='submit' value='{$id}'><svg xmlns='http://www.w3.org/2000/svg'
+                    fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='size-6'>
+                    <path stroke-linecap='round' stroke-linejoin='round' d='M5 12h14' />
+                  </svg></button>
+                <span class='text-lg __product_quantity'>{$product_quantity}</span>
+                <button class='' name='increment' type='submit' value='{$id}'><svg xmlns='http://www.w3.org/2000/svg'
+                    fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='size-6'>
+                    <path stroke-linecap='round' stroke-linejoin='round' d='M12 4.5v15m7.5-7.5h-15' />
+                  </svg></button>
+              </div>
+            </div>
+            <div class='table-cell align-middle text-left __total_price'> </div>
+            <div class='table-cell align-middle text-left '> <button type='submit' name='delete' value='{$id}'>Delete</button> </div>
+          </div>
             ";
-            }
-            ?>
-            <!-- sample -->
-            <tr class='mt-2'>
-              <td><input type='checkbox' name='include' id=''></td>
-              <td>
-                <div class='flex items-center justify-start gap-2'>
-                  <div class='object-contain w-32 aspect-square'>
-                    <img class='' src='{$product_image}' alt=''>
-                  </div>
-                  <h2>{$product_name}</h2>
+          }
+          ?>
+
+          <!-- Table Row Template -->
+          <!-- <div class="table-row">
+            <div class="table-cell align-middle text-left"><input type='checkbox' name='include' id=''></div>
+            <div class="table-cell align-middle text-left">
+              <div class='flex items-center justify-start gap-2 min-w-60'>
+                <div class='object-contain w-32 aspect-square'>
+                  <img class='' src='{$product_image}' alt=''>
                 </div>
-              </td>
-              <td>₱{$product_price}</td>
-              <td>
-                <div class='flex items-center justify-center gap-2'>
-                  <button class='' type='submit' value='decrement'>{$minus}</button>
-                  <span class='text-lg'>{$product_quantity}</span>
-                  <button class='' type='submit' value='decrement'>{$plus}</button>
-                </div>
-              </td>
-              <td id='total-price'>₱</td>
-              <td><input type='submit' name='delete' value='Delete'></td>
-            </tr>
-            <!-- sample -->
-          </tbody>
-        </table>
+                <h2>Veggie Bag</h2>
+              </div>
+            </div>
+            <div class="table-cell align-middle text-left  ">
+              <span>₱500</span>
+            </div>
+            <div class="table-cell align-middle text-left ">
+              <div class='flex items-center justify-start gap-2'>
+                <button class='' name='decrement' type='submit' value='{$id}'><svg xmlns="http://www.w3.org/2000/svg"
+                    fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14" />
+                  </svg></button>
+                <span class='text-lg'>1</span>
+                <button class='' name='increment' type='submit' value='{$id}'><svg xmlns="http://www.w3.org/2000/svg"
+                    fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                  </svg></button>
+              </div>
+            </div>
+            <div class="table-cell align-middle text-left "> ₱500 </div>
+            <div class="table-cell align-middle text-left "> <button type='submit' name='delete' value='{$id}'>Delete</button> </div>
+          </div> -->
+          <!-- Table Row Template -->
+        </div>
       </form>
+
+      <div class="w-full flex justify-center">
+          <button  >
+            Check out
+          </button>
+        </div>
+
+
     </section>
+
   </main>
   <script src="../js/basket.js"></script>
 </body>

@@ -67,6 +67,8 @@ html {
     height: 100%;
     object-fit: cover;
     border-radius: 5px;
+    object-fit: cover;
+    aspect-ratio: 1/1;
 }
 
 .info {

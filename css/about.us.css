@@ -1,186 +1,96 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap');
-
 * {
-    font-family: 'Jost', sans-serif;
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    padding: 0px;
     box-sizing: border-box;
-    }
-
-.body {
-    font-family: 'Jost', sans-serif;
-    display: grid;
-    align-content: center;
-    min-height: 100vh;
-    background-color: #F5F4F2;
-
 }
+
+:root {
+    --clr-green-light: #77a84d;
+    --clr-green-dark: #223017;
+}
+
+body,
+html {
+  height: 100%;
+  font-family: "Jost", sans-serif; /* Apply Jost font as the default font */
+  background-color: #f5f4f2;
+}
+
 .navbar {
-    background-color: #F5F4F2;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px;
+  background-color: #f5f4f2;
 }
 
-.navbar-logo {
-    display: flex;
-    align-items: center;
+.logo {
+    width: 200px;
 }
 
-    .navbar-logo img {
-    height: 100px;
-    margin-left: 90px;
-}
-
-.navbar-links {
-    display: flex;
-}
-
-.navbar-links a {
-    color: #3B5326;
-    position: relative;
-    text-decoration: none;
-    margin-left: 60px;
-    font-style: bold;
-}
-
-.navbar-links a:after {
-    content: "";
-    position: absolute;
-    background-color: #B8BF4F;
-    height: 3px;
-    width: 0;
-    left: 0;
-    bottom: -4px;
-    transition: 0.3s;
-}
-
-a:hover{
-    color: #B8BF4F;
-}
-
-a:hover::after{
+.logo img {
     width: 100%;
 }
 
-.navbar-search {
-    flex-grow: 1;
+.header {
     text-align: center;
 }
 
-
-
-.navbar-search input[type="text"] {
-    padding: 8px;
-    width: 40%;
-    border: 1px solid #ccc;
-    border-radius: 20px;
-    background-color: white;
-    border-color: #3B5326;
-
+.header h1 {
+    color: var(--clr-green-light)
 }
 
-
-.navbar-actions {
+.hero {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 24px;
+    width: 100vw;
+    height: 50vh;
 }
 
-.navbar-actions a {
-    color: #3B5326;
-    text-decoration: none;
-    padding: 0 15px;
-}
-
-
-
-/* ICONS RIGHT SIDE */
-
-.navbar-links-1 {
-    display: flex;
-   
-}
-
-.navbar-links-1 a {
-    color: #3B5326;
-    text-decoration: none;
-    padding: 0 17px;
-    margin-right: 10px;
-}
-
-.navbar-links-1 img {
-    height: 17px;
-    margin-right: 10px;
-}
-
-.navbar-links-1 a:after {
-    content: "";
-    height: 3px;
-    width: 0;
-    left: 0;
-    bottom: -4px;
-    transition: 0.3s;
-}
-
-a:hover{
-    color: #B8BF4F;
-}
-
-a:hover::after{
+.first img, 
+.third img {
     width: 100%;
 }
 
-.heading{
-    text-align: center;
-    margin: 25px;
-}
-.heading h1{
-    font-size: 50px;
-    color: #3B5326;
-    margin-bottom: 10px;
-}
-.about-us{
+.second {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    width: 85%;
-    margin: auto;
-}
-.about-us img{
-    flex: 0 50%;
-    max-width: 50%;
-    height: auto;
-}
-.content{
-    padding: 35px;
-}
-.content p{
-    color: #3B5326;
-    font-size: 18px;
-    line-height: 1.5;
-    margin: 15px 0px;
-    text-align: justify;
+    padding: 16px;
+    gap: 32px;
+    background-color: var(--clr-green-dark);
 }
 
-.welcome-btn a{
-    background-color:#3B5326; 
-    display: inline-block;
-    padding: 12px 20px;
-    text-decoration: none;
-    border-radius: 14px;
-    margin-top: 7px;
+.second h2 {
+    color: var(--clr-green-light);
+}
+
+.second p {
     color: white;
-    top: 55%;
-    transition: 0.2s ease;
-    cursor: pointer;
-    font-size: 18px;
-
-
-
+    font-size: 12px;
 }
-.welcome-btn:hover{
-    background-color:#3B5326;
+
+.second button {
+    padding: 8px 16px;
+    font-weight: bold;
+    background-color: var(--clr-green-light) ;
+    color: white;
+    border: none;
+    border-radius: 8px;
+}
+
+.hero .first,
+.hero .second,
+.hero .third {
+    width: 33.33%;
+    height: 100%;
+    overflow-y: hidden;
+}
+
+.desxription {
+    padding: 24px 100px;
+    color: var(--clr-green-dark);
 }

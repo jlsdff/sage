@@ -29,33 +29,33 @@
           <div class="photo">
             <img src="../pic/2.png" alt="" />
             <div class="info">
-              <b>Body Loofah </b>
+              <b>Bathroom Essentials </b>
               <br />
-              Mae Cares
+              franzdown
             </div>
           </div>
           <div class="photo">
             <img src="../pic/3.png" alt="" />
             <div class="info">
-              <b>Body Loofah </b>
+              <b>Flower Bag</b>
               <br />
-              Mae Cares
+              den.ease
             </div>
           </div>
           <div class="photo">
             <img src="../pic/4.png" alt="" />
             <div class="info">
-              <b>Body Loofah </b>
+              <b>Lunch Set </b>
               <br />
-              Mae Cares
+              James Alateit
             </div>
           </div>
           <div class="photo">
             <img src="../pic/5.png" alt="" />
             <div class="info">
-              <b>Body Loofah </b>
+              <b>Kitchen Set | Tamara </b>
               <br />
-              Mae Cares
+              ElissaD
             </div>
           </div>
         </div>
