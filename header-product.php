@@ -36,8 +36,8 @@
         
         <!-----ADD TO CART, ACCOUNT, FAVORITES---->
         <div class="navbar-links-1">
-            <a href="../product/likes.php"><img src="../WEBDEV_PICS/10 (2).png">Likes</a>
-            <a href="#Account"><img src="../WEBDEV_PICS/11 (2).png">Account</a>
+            <a href="/sage/product/likes.php"><img src="../WEBDEV_PICS/10 (2).png">Likes</a>
+            <a href="/sage/product/account.php"><img src="../WEBDEV_PICS/11 (2).png">Account</a>
             <a href="/sage/product/basket.php"><img src="../WEBDEV_PICS/12 (1).png">Basket</a>
         </div>
     </div>
