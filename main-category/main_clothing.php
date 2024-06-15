@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>sage eco-shop |Header</title>
-    <link rel="stylesheet" type="text/css" href="css/main_living.css">
+    <link rel="stylesheet" type="text/css" href="../css/main_living.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,7 +16,7 @@
 
         <div class="navbar-logo">
 
-        <a href="main_content.php"><img src="WEBDEV_PICS/sage.png" alt="Logo"></a>
+        <a href="main_content.php"><img src="../WEBDEV_PICS/sage.png" alt="Logo"></a>
 
        
         <div class="navbar-links">
@@ -33,14 +33,13 @@
         
         <div class="navbar-search">
             <input type="text" name="text" placeholder="Type to search">
-            <!---HINDI PA TAPOS---->
         </div>
         
         <!-----ADD TO CART, ACCOUNT, FAVORITES---->
         <div class="navbar-links-1">
-            <a href="#Likes"><img src="WEBDEV_PICS/10 (2).png">Likes</a>
-            <a href="#Account"><img src="WEBDEV_PICS/11 (2).png">Account</a>
-            <a href="#Basket"><img src="WEBDEV_PICS/12 (1).png">Basket</a>
+            <a href="../product/likes.php"><img src="../WEBDEV_PICS/10 (2).png">Likes</a>
+            <a href="#Account"><img src="../WEBDEV_PICS/11 (2).png">Account</a>
+            <a href="../product/basket.php"><img src="../WEBDEV_PICS/12 (1).png">Basket</a>
         </div>
     </div>
 
@@ -50,7 +49,7 @@
 
     <div class="container">
         <div class="item">
-                <a href="#"><img src="WEBDEV_PICS/22.png"></a>
+                <a href="#"><img src="../WEBDEV_PICS/22.png"></a>
                     <div class="card-text">
                         <a href="#">Flour Sack Co-ord</a>
                         <a href="#"><p>By: SackSimplicity</p></a>
@@ -60,7 +59,7 @@
         </div>
  
         <div class="item">
-                <a href="#"><img src="WEBDEV_PICS/23.png"></a>
+                <a href="#"><img src="../WEBDEV_PICS/23.png"></a>
                     <div class="card-text">
                         <a href="#">Flour Sack Polo</a>
                         <a href="#"><p>By: SackStyleHub</p></a>
@@ -71,7 +70,7 @@
         </div>
 
         <div class="item1">
-                <a href="#"><img src="WEBDEV_PICS/24.png"></a>
+                <a href="#"><img src="../WEBDEV_PICS/24.png"></a>
                     <div class="card-text">
                         <a href="#">Rice Sack Polo</a>
                         <a href="#"><p>By: SackSartorial</p></a>
@@ -81,7 +80,7 @@
          </div>
  
         <div class="item">
-                <a href="#"><img src="WEBDEV_PICS/25.png"></a>
+                <a href="#"><img src="../WEBDEV_PICS/25.png"></a>
                     <div class="card-text">
                         <a href="#">Rice Sack Polo Shirt</a>
                         <a href="#"><p>By: SackSwag</p></a>
@@ -94,7 +93,7 @@
 <!-----ANOTHER PRODUCTS---->
         <div class="container2">
             <div class="item">
-                    <a href="#"><img src="WEBDEV_PICS/26.png"></a>
+                    <a href="#"><img src="../WEBDEV_PICS/26.png"></a>
                         <div class="card-text">
                             <a href="#">Sack Apron</a>
                             <a href="#"><p>By: SackStitch</p></a>
@@ -104,7 +103,7 @@
             </div>
      
             <div class="item">
-                    <a href="#"><img src="WEBDEV_PICS/27.png"></a>
+                    <a href="#"><img src="../WEBDEV_PICS/27.png"></a>
                         <div class="card-text">
                             <a href="#">Sack Hand Bag</a>
                             <a href="#"><p>By: SackCouture</p></a>
@@ -114,7 +113,7 @@
             </div>
     
             <div class="item1">
-                    <a href="#"><img src="WEBDEV_PICS/28.png"></a>
+                    <a href="#"><img src="../WEBDEV_PICS/28.png"></a>
                         <div class="card-text">
                             <a href="#">Sack Wallet</a>
                             <a href="#"><p>By: SackChic</p></a>
@@ -124,7 +123,7 @@
              </div>
      
             <div class="item">
-                    <a href="#"><img src="WEBDEV_PICS/29.png"></a>
+                    <a href="#"><img src="../WEBDEV_PICS/29.png"></a>
                         <div class="card-text">
                             <a href="#">Sack Totebag</a>
                             <a href="#"><p>By: SackSavvy</p></a>

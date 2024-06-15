@@ -49,10 +49,8 @@ if (isset($_POST['submit'])) {
 
     <form action="login.php" method="post">
         <div class="header">
-            <img src="../pic/newlogo.png" alt="Logo" class="logo">
-            <a href="welcome.php" class="back-button">
-                <img src="../pic/back.png" alt="Back" class="back-icon">
-            </a>
+        <a href="welcome.php"><img src="../pic/newlogo.png" alt="Logo" class="logo"></a>
+
         </div>
         <div class="container">
             <h2>Login</h2>
@@ -94,29 +92,24 @@ if (isset($_POST['submit'])) {
             <button class="continue-next-button"><img src="../pic/phone.png" class="icon"> Continue with Phone</button>
 
             <div class="signup-text">
-                Don't have an account? <a href="signup2.php">Sign up.</a>
-            </div>
-
-            <div class="terms-policy">
-                By continuing, you agree to our<br>
-                <a href="terms.html">Terms of Service</a> and <a href="policy.html"> Privacy Policy</a>
+                Don't have an account? <a href="signup2.php"><b>Sign up</b></a>
             </div>
 
             <div class="photo-container">
                 <div class="slideshow">
                     <div class="slide">
                         <img src="../pic/p1.png" alt="Photo 1">
-                        <div class="info">Information about Photo 1</div>
+                        <div class="info"></div>
                     </div>
 
                     <div class="slide">
                         <img src="../pic/p2.png" alt="Photo 2">
-                        <div class="info">Information about Photo 2</div>
+                        <div class="info"></div>
                     </div>
 
                     <div class="slide">
                         <img src="../pic/p3.png" alt="Photo 3">
-                        <div class="info">Information about Photo 3</div>
+                        <div class="info"></div>
                     </div>
                 </div>
             </div>

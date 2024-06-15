@@ -35,9 +35,9 @@
         
         <!-----ADD TO CART, ACCOUNT, FAVORITES---->
         <div class="navbar-links-1">
-            <a href="#"><img src="../WEBDEV_PICs/9 (1).png">Likes</a>
+            <a href="../product/likes.php"><img src="../WEBDEV_PICs/9 (1).png">Likes</a>
             <a href="#"><img src="../WEBDEV_PICS/10 (1).png">Account</a>
-            <a href="#"><img src="../WEBDEV_PICS/11 (1).png">Basket</a>
+            <a href="../product/cart.php"><img src="../WEBDEV_PICS/11 (1).png">Basket</a>
         </div>
     </div>
 

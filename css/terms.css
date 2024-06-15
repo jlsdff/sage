@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap');
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #F5F4F2;
+}
+
+main {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.box {
+  max-width: 700px;
+  padding: 7px 3px;
+}
+
+.text {
+  font-size: 17px;
+  font-weight: 400;
+  text-align: justify;
+}
+
+.box .text span {
+  color: red;
+  font-weight: 700;
+}
+
+.text h2 {
+  color: #3B5326;
+  text-transform: uppercase;
+  padding: 20px 0px;
+}
+
+.text p {
+  padding: 2px 0px;
+}
+
+.text h4 {
+  padding: 20px 0px;
+  font-weight: 400;
+}
+
+.button {
+  display: flex;
+  padding: 10px 20px;
+  justify-content: space-between;
+}
+
+.btn {
+  height: 50px;
+  width: calc(50% - 10px);
+  border: 0;
+  border-radius: 20px;
+  font-size: 20px;
+  font-weight: 500;
+  color: white;
+  transition: .3s linear;
+  cursor: pointer;
+}
+
+.green-btn {
+  background-color: #3B5326;
+}
+
+.red-btn {
+  background-color: #282828;
+}
+
+.btn:hover {
+  opacity: .7;
+}
+
+.relative {
+  position: relative;
+}
+
+.elissa-mae svg{
+  max-width: 30px;
+  position: absolute;
+  top: 50%;
+  left: -30px;
+}

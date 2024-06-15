@@ -37,7 +37,9 @@ html {
 }
 
 .header h1 {
-    color: var(--clr-green-light)
+    color: var(--clr-green-dark);
+    font-size: 44px;
+    
 }
 
 .hero {
@@ -66,20 +68,23 @@ html {
 
 .second h2 {
     color: var(--clr-green-light);
+    font-size: 44px;
 }
 
 .second p {
     color: white;
     font-size: 12px;
+    font-size: 17px;
 }
 
-.second button {
+.second a {
     padding: 8px 16px;
     font-weight: bold;
     background-color: var(--clr-green-light) ;
     color: white;
     border: none;
     border-radius: 8px;
+    text-decoration: none;
 }
 
 .hero .first,
@@ -88,9 +93,11 @@ html {
     width: 33.33%;
     height: 100%;
     overflow-y: hidden;
+    text-align: center;
 }
 
 .desxription {
     padding: 24px 100px;
     color: var(--clr-green-dark);
+    text-align: justify;
 }

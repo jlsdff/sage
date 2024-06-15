@@ -23,7 +23,7 @@
     <main>
 
         <section class="header">
-            <h1>About us</h1>
+            <h1>About Sage</h1>
         </section>
 
         <section class="hero">
@@ -31,8 +31,8 @@
                 <img src="../WEBDEV_PICS/pics  icons (1).png" alt="" srcset="">
             </div>
             <div class="second">
-                <h2>Sustainable living starts here.</h2>
-                <button>Shop</button>
+                <h2>Sustainable living<br>starts here.</h2>
+                <a href="welcome.php">Shop</a>
                 <p>Shop guilt-free for a greener tomorrow with our e-commerce platform dedicated to curating sustainable
                     living essentials.</p>
             </div>

@@ -31,14 +31,13 @@ if(isset($_POST['submit'])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>sage eco-shop</title>
+    <title>sage eco-shop | Sign Up</title>
     <link rel="stylesheet" type = "text/css" href="../css/signup2style.css">
 </head>
 <body>
     <div class="header">
-        <img src="../pic/newlogo.png" alt="Logo" class="logo">
+    <a href="welcome.php"><img src="../pic/newlogo.png" alt="Logo" class="logo"></a>
         <a href="welcome.php" class="back-button">
-            <img src="../pic/back.png" alt="Back" class="back-icon">
         </a>
     </div>
     <div class="container">
@@ -85,27 +84,27 @@ if(isset($_POST['submit'])){
             <input type="submit" name="submit" value="Sign Up" class="continue-button">
 
             <div class="signup-text">
-                Already have an account? <a href="login.php">Login.</a>
+                Already have an account? <a href="login.php"><b>Login</b></a>
             </div>
 
             <div class="terms-policy">
                 By continuing, you agree to our<br>
-                <a href="#">Terms of Service</a> and <a href="#"> Privacy Policy</a>
+                <a href="terms.php"><b>Terms of Service</b></a> and <a href="policy.php"> <b>Privacy Policy</b></a>
             </div>
 
             <div class="photo-container">
                 <div class="slideshow">
                     <div class="slide">
                         <img src="../pic/p1.png" alt="Photo 1">
-                        <div class="info">Information about Photo 1</div>
+                        <div class="info"></div>
                     </div>
                     <div class="slide">
                         <img src="../pic/p2.png" alt="Photo 2">
-                        <div class="info">Information about Photo 2</div>
+                        <div class="info"></div>
                     </div>
                     <div class="slide">
                         <img src="../pic/p3.png" alt="Photo 3">
-                        <div class="info">Information about Photo 3</div>
+                        <div class="info"></div>
                     </div>
                 </div>
             </div>
