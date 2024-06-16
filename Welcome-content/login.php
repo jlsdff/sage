@@ -88,8 +88,6 @@ if (isset($_POST['submit'])) {
                 <span class="divider-line"></span>
             </div>
 
-            <button class="continue-next-button"><img src="../pic/email.png" class="icon"> Continue with Google</button>
-            <button class="continue-next-button"><img src="../pic/phone.png" class="icon"> Continue with Phone</button>
 
             <div class="signup-text">
                 Don't have an account? <a href="signup2.php"><b>Sign up</b></a>
