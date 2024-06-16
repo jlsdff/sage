@@ -17,9 +17,20 @@ function decrementItemCart($cart_id)
   }
 }
 
-function deleteItemCart($cart_id){
+function deleteItemCart($cart_id)
+{
   global $conn;
   $conn->query("DELETE FROM cart WHERE id=$cart_id");
+}
+
+function getItem($product_id, $user_id)
+{
+  global $conn;
+  return $conn->query("SELECT cart.*, products.name, products.price, products.image 
+FROM cart
+JOIN products ON cart.product_id = products.id
+WHERE cart.user_id = $user_id AND cart.product_id = $product_id
+")->fetch_array();
 }
 
 ?>
