@@ -50,6 +50,7 @@ $products = $conn->query($query);
 
         $name = $product['name'];
         $product_id = $product['id'];
+        $seller = $product['seller'];
         $price = $product['price'];
         $product_image = 'data:image/jpeg;base64,' . base64_encode($product['image']);
 
@@ -60,8 +61,8 @@ $products = $conn->query($query);
 
         <div>
         <div class='text-center'>
-          <h2 class='text-lg font-bold'>{$name}</h2>
-          <h3 class='text-base '>Author</h3>
+          <h2 class='text-lg font-bold'><a href='/sage/product/product.php?id=$product_id'>{$name}</a></h2>
+          <h3 class='text-base '>{$seller}</h3>
         </div>
         <form method='post' action='likes.php' class='flex items-center justify-center '>
           <button type='submit' name='unlike' value='{$product_id}'>
