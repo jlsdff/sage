@@ -10,10 +10,10 @@ if ($user_address->num_rows == 0) {
 }else {
   $user_arr = $user_address->fetch_array();
 
-  $house_number = $user_arr['house_number'];
-  $street = $user_arr['street'];
-  $city = $user_arr['city'];
-  $zip_code = $user_arr['zip_code'];
+  $house_number = $user_arr['house_number'] ? $user_arr['house_number'] : "";
+  $street = $user_arr['street'] ? $user_arr['street'] : "";
+  $city = $user_arr['city'] ? $user_arr['city'] : "";
+  $zip_code = $user_arr['zip_code'] ? $user_arr['zip_code'] : "";
 }
 
 if (isset($user_id)) {
