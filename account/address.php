@@ -21,7 +21,7 @@ if (isset($user_id)) {
   $user = $conn->query("SELECT * FROM users WHERE id = $user_id");
   $user = $user->fetch_array();
 
-  $username = $user['username'];
+  $username = $user['username'] && '';
   $name = $user['name'] ? $user['name'] : '';
   $email = $user['email'] ? $user['email'] : '';
   $phone_number = $user['phone_number'] ? $user['phone_number'] : '';

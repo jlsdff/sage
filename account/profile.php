@@ -79,7 +79,7 @@ if(isset($_POST['update_profile_image'])){
       <div class="w-[400px]">
         <!-- Image Profile -->
         <div class="flex items-center justify-center w-full aspect-square ">
-          <img class="w-full rounded-full aspect-square" src="<?php echo $image ?>" alt="" srcset="">
+          <img class="object-cover w-full rounded-full aspect-square " src="<?php echo $image ?>" alt="" srcset="">
         </div>
         <!-- Full Name -->
         <h1 class='text-3xl font-black text-center'><?php echo $username ?></h1>
@@ -162,7 +162,7 @@ if(isset($_POST['update_profile_image'])){
           <!-- Profile Image -->
           <form action="profile.php" enctype="multipart/form-data" method="post" class='w-64 h-full p-4 border-l-4 border-l-slate-400/5'>
             <div class="w-full aspect-square">
-              <img class="rounded-full" src="<?php echo $image ?>" alt="" srcset="">
+              <img class="object-cover w-full rounded-full aspect-square" src="<?php echo $image ?>" alt="" srcset="">
             </div>
             <div>
               <label class="block mb-2 text-sm font-medium text-gray-900 " for="file_input">Upload
