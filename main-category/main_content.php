@@ -35,9 +35,9 @@
         
         <!-----ADD TO CART, ACCOUNT, FAVORITES---->
         <div class="navbar-links-1">
-            <a href="../product/likes.php"><img src="../WEBDEV_PICs/9 (1).png">Likes</a>
-            <a href="#"><img src="../WEBDEV_PICS/10 (1).png">Account</a>
-            <a href="../product/cart.php"><img src="../WEBDEV_PICS/11 (1).png">Basket</a>
+            <a href="/sage/product/likes.php"><img src="../WEBDEV_PICs/9 (1).png">Likes</a>
+            <a href="/sage/account/profile.php"><img src="../WEBDEV_PICS/10 (1).png">Account</a>
+            <a href="/sage/product/basket.php"><img src="../WEBDEV_PICS/11 (1).png">Basket</a>
         </div>
     </div>
 
@@ -56,23 +56,23 @@
 
     <div class="card-container">
         <div class="card">
-            <a href="../main_category/main_living.php"><img src="../WEBDEV_PICS/Untitled design (12).png"></a>
+            <a href="/sage/main-category/main_living.php"><img src="../WEBDEV_PICS/Untitled design (12).png"></a>
             <div class="card-content">
-                <a href="main_living.php">Living</a>
+                <a href="sage/main_category/main_living.php">Living</a>
             </div>
         </div>
 
         <div class="card">
-            <a href="../main_category/main_accessories.php"><img src="../WEBDEV_PICS/p3.png"></a>
+            <a href="sage/main_category/main_accessories.php"><img src="../WEBDEV_PICS/p3.png"></a>
             <div class="card-content">
-                <a href="main_accessories.php">Accessories</a>
+                <a href="sage/main_category/main_accessories.php">Accessories</a>
             </div>
         </div>
 
         <div class="card">
-            <a href="../main_category/main_clothing.php"><img src="../WEBDEV_PICS/p6.png"></a>
+            <a href="sage/main_category/main_clothing.php"><img src="../WEBDEV_PICS/p6.png"></a>
             <div class="card-content">
-                <a href="main_clothing.php">Clothing</a>
+                <a href="sage/main_category/main_clothing.php">Clothing</a>
             </div>
         </div>
         

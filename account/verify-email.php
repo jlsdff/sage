@@ -105,9 +105,9 @@ if (isset($user_id)) {
             <br>
             <a class='' href="change-password.php">Change Password</a>
           </div>
-          <form action="profile.php" post="post" class='mt-2'>
+          <form action="profile.php" method="post" class='mt-2'>
             <h2 class='text-xl font-bold'>General Settings</h2>
-            <button type="submit" name="logout">
+            <button type="submit" name="logout" value="--">
               Logout
             </button>
           </form>

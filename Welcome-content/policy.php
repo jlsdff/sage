@@ -16,7 +16,7 @@
 
 <body>
 
-    <?php include '../welcome(header).php'; ?>
+    <?php include '../header/welcome(header).php'; ?>
     <main>
         <div class="box">
             <div class="text">

@@ -4,6 +4,11 @@ session_start();
 include '../Welcome-content/db.php';
 $user_id = $_SESSION['user_id'];
 
+if(isset($_POST['logout'])){
+  session_destroy();
+  header('Location: ../Welcome-content/login.php');
+}
+
 if (isset($user_id)) {
 
   $user = $conn->query("SELECT * FROM users WHERE id = $user_id");
@@ -46,11 +51,7 @@ if(isset($_POST['update_profile_image'])){
   }
 }
 
-if(isset($_POST['logout'])){
-  session_destroy();
-  header('Location: ../Welcome-content/login.php');
-  echo 'logout';
-}
+
 
 ?>
 
@@ -94,9 +95,9 @@ if(isset($_POST['logout'])){
             <br>
             <a class='' href="change-password.php">Change Password</a>
           </div>
-          <form action="profile.php" post="post" class='mt-2'>
+          <form action="profile.php" method="post" class='mt-2'>
             <h2 class='text-xl font-bold'>General Settings</h2>
-            <button type="submit" name="logout">
+            <button type="submit" name="logout" value="--">
               Logout
             </button>
           </form>

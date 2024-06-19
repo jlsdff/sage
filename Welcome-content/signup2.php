@@ -75,12 +75,6 @@ if(isset($_POST['submit'])){
                 <label for="cpassword"><b>Retype password</b></label>
                 <input type="password" id="cpassword" name="cpassword" placeholder="******" required>
             </div>
-            <div class="form-group">
-                <select name="user_type" class="continue-button" value="user" required>
-                    <option value=""></option>
-                    <option value="user">User</option>
-                </select>
-            </div>
             <input type="submit" name="submit" value="Sign Up" class="continue-button">
 
             <div class="signup-text">
