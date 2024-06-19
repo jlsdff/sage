@@ -42,14 +42,14 @@ if (isset($_POST['submit'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>sage eco-shop</title>
-    <link rel="stylesheet" type = "text/css" href="../css/logins.css">
+    <link rel="stylesheet" type="text/css" href="../css/logins.css">
 </head>
 
 <body>
 
     <form action="login.php" method="post">
         <div class="header">
-        <a href="welcome.php"><img src="../pic/newlogo.png" alt="Logo" class="logo"></a>
+            <a href="welcome.php"><img src="../pic/newlogo.png" alt="Logo" class="logo"></a>
 
         </div>
         <div class="container">
@@ -59,6 +59,9 @@ if (isset($_POST['submit'])) {
             </p>
 
             <?php
+
+            echo !empty($_GET['signup']) ? '<div class="message"><span>registered successfully!</span><i class="fas fa-times" onclick="this.parentElement.remove();"></i></div>' : '';
+
             if (isset($message)) {
                 foreach ($message as $message) {
                     echo '
@@ -81,7 +84,7 @@ if (isset($_POST['submit'])) {
             </div>
 
             <input type="submit" name="submit" value="Log In" class="continue-button">
-            
+
             <div class="divider">
                 <span class="divider-line"></span>
                 <span class="divider-text">or</span>
@@ -89,7 +92,7 @@ if (isset($_POST['submit'])) {
             </div>
 
             <div class="signup-text">
-                Don't have an account? <a href="signup2.php"><b>Sign up</b></a>
+                Don't have an account? <a href="signup.php"><b>Sign up</b></a>
             </div>
 
             <div class="photo-container">
