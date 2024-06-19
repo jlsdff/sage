@@ -46,10 +46,10 @@ if (isset($_POST['signup'])) {
     <section class="w-full min-h-[500px] flex flex-col sm:flex-row ">
       <!-- Form -->
       <div class="flex flex-col items-start justify-center w-full sm:w-1/2">
-        <div class="w-[200px]">
-          <img src="../pic/sagelogo.png" alt="Logo" class="w-full">
+        <div class="flex justify-center w-full sm:justify-start">
+          <img src="../pic/sagelogo.png" alt="Logo" class="w-[200px]">
         </div>
-        <div class="mt-4">
+        <div class="w-full mt-4 text-center sm:text-left">
           <h1 class="text-xl font-bold sm:text-3xl text-primary-100">Create an Account</h1>
           <p class="text-base tracking-normal sm:text-xl text-primary-100">Join our community today! Sign up and start
             making sustainable
