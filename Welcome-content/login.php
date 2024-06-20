@@ -1,121 +1,131 @@
 <?php
-include 'config.php';
+
+include 'db.php';
 session_start();
 
-if (isset($_POST['submit'])) {
+if (isset($_POST['login'])) {
 
-    $email = mysqli_real_escape_string($conn, $_POST['email']);
-    $pass = mysqli_real_escape_string($conn, md5($_POST['password']));
+  $email = $_POST['email'];
+  $pass = md5($_POST['password']);
 
-    $select_users = mysqli_query($conn, "SELECT * FROM `users` WHERE email = '$email' AND password = '$pass'") or die('query failed');
+  $stmt = $conn->prepare('SELECT * FROM users WHERE email = ? AND password = ?');
+  $stmt->bind_param('ss', $email, $pass);
+  $stmt->execute();
+  $result = $stmt->get_result();
 
-    if (mysqli_num_rows($select_users) > 0) {
+  if ($result->num_rows > 0) {
 
-        $row = mysqli_fetch_assoc($select_users);
+    $user = $result->fetch_assoc();
+    $stmt->close();
 
-        if ($row['user_type'] == 'admin') {
+    $_SESSION['user_name'] = $user['name'];
+    $_SESSION['user_email'] = $user['email'];
+    $_SESSION['user_id'] = $user['id'];
+    header('location:/sage/main-category/main_content.php');
 
-            $_SESSION['admin_name'] = $row['name'];
-            $_SESSION['admin_email'] = $row['email'];
-            $_SESSION['admin_id'] = $row['id'];
-            header('location:welcome.php');
 
-        } elseif ($row['user_type'] == 'user') {
+  } else {
+    $message[] = 'Invalid Credentials!';
+  }
 
-            $_SESSION['user_name'] = $row['name'];
-            $_SESSION['user_email'] = $row['email'];
-            $_SESSION['user_id'] = $row['id'];
-            header('location:/sage/main-category/main_content.php');
 
-        }
-
-    } else {
-        $message[] = 'incorrect email or password!';
-    }
 
 }
+
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>sage eco-shop</title>
-    <link rel="stylesheet" type="text/css" href="../css/logins.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/output.css">
 </head>
 
-<body>
+<body class="bg-[#f5f4f2]">
 
-    <form action="login.php" method="post">
-        <div class="header">
-            <a href="welcome.php"><img src="../pic/newlogo.png" alt="Logo" class="logo"></a>
-
+  <main class="flex items-center justify-center w-full min-h-screen">
+    <section class="flex items-center w-full px-8 sm:px-32">
+      <!-- Form -->
+      <div class="flex flex-col w-full gap-4 sm:w-1/2">
+        <div class="flex justify-center w-full sm:justify-start">
+          <img src="../pic/sagelogo.png" alt="Logo" class="w-[200px]">
         </div>
-        <div class="container">
-            <h2>Login</h2>
-            <p>Log in to our marketplace and shop sustainably
-                <br> with a conscience.
-            </p>
+        <div class="w-full text-center sm:text-left text-primary-100 ">
+          <h1 class="text-2xl font-bold sm:text-4xl">Login</h1>
+          <p class="text-lg tracking-wide">Log in to our marketplace and shop sustainably
+            with a conscience.</p>
+        </div>
 
+        <div>
+          <ul>
             <?php
-
-            echo !empty($_GET['signup']) ? '<div class="message"><span>registered successfully!</span><i class="fas fa-times" onclick="this.parentElement.remove();"></i></div>' : '';
-
             if (isset($message)) {
-                foreach ($message as $message) {
-                    echo '
-                  <div class="message">
-                     <span>' . $message . '</span>
-                     <i class="fas fa-times" onclick="this.parentElement.remove();"></i>
-                  </div>
-                  ';
-                }
+              foreach ($message as $msg) {
+                echo '
+                    <li class="font-bold text-red-500">
+                        <span>' . $msg . '</span>
+                    </li>
+                    ';
+              }
             }
             ?>
-
-            <div class="form-group">
-                <label for="email"><b> Your email </b></label>
-                <input type="email" id="email" name="email" placeholder="email" required>
-            </div>
-            <div class="form-group">
-                <label for="password"><b>Password</b></label>
-                <input type="password" id="password" name="password" placeholder="********" required>
-            </div>
-
-            <input type="submit" name="submit" value="Log In" class="continue-button">
-
-            <div class="divider">
-                <span class="divider-line"></span>
-                <span class="divider-text">or</span>
-                <span class="divider-line"></span>
-            </div>
-
-            <div class="signup-text">
-                Don't have an account? <a href="signup.php"><b>Sign up</b></a>
-            </div>
-
-            <div class="photo-container">
-                <div class="slideshow">
-                    <div class="slide">
-                        <img src="../pic/p1.png" alt="Photo 1">
-                        <div class="info"></div>
-                    </div>
-
-                    <div class="slide">
-                        <img src="../pic/p2.png" alt="Photo 2">
-                        <div class="info"></div>
-                    </div>
-
-                    <div class="slide">
-                        <img src="../pic/p3.png" alt="Photo 3">
-                        <div class="info"></div>
-                    </div>
-                </div>
-            </div>
+          </ul>
         </div>
-    </form>
-    <script src="../js/signup2.js"></script>
+
+        <form class="flex flex-col gap-3" action="login.php" method="post">
+          <div class="w-full sm:max-w-lg">
+            <label for="email" class="block mb-2 text-sm font-medium text-gray-900 ">Email</label>
+            <input name="email" type="email" id="email" placeholder="Enter your email"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+              value="<?php echo !empty($email) ? $email : '' ?>" required />
+          </div>
+          <div class="w-full sm:max-w-lg">
+            <label for="password" class="block mb-2 text-sm font-medium text-gray-900 ">Password</label>
+            <input name="password" type="password" id="password" placeholder="Password"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+              required />
+          </div>
+          <div class="w-full sm:max-w-lg">
+            <button type="submit" name="login"
+              class="w-full  bg-primary-100 text-white hover:bg-primary-200 py-2.5 rounded-full">Login</button>
+          </div>
+
+        </form>
+
+        <div class="w-full max-w-lg">
+          <p class="text-sm text-center text-gray-500">Don't have an account? <a href="signup.php"
+              class="font-bold text-primary-100 hover:underline">Sign up</a></p>
+        </div>
+
+      </div>
+      <!-- Carousel -->
+      <div class="hidden w-1/2 sm:block">
+        <!-- Carousel Container-->
+        <div class="w-full p-8" id="default-carousel" class="relative w-full" data-carousel="slide">
+          <div class="relative w-full overflow-hidden rounded-lg h-[700px]">
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+              <img src="../pic/p1.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                alt="...">
+            </div>
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+              <img src="../pic/p2.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                alt="...">
+            </div>
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+              <img src="../pic/p3.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                alt="...">
+            </div>
+          </div>
+        </div>
+    </section>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 </body>
 
 </html>

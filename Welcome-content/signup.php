@@ -40,7 +40,7 @@ if (isset($_POST['signup'])) {
   <link rel="stylesheet" href="../css/output.css">
 </head>
 
-<body>
+<body class="bg-[#f5f4f2]">
 
   <main class="flex items-center justify-center w-screen min-h-screen px-8 sm:px-32">
     <section class="w-full min-h-[500px] flex flex-col sm:flex-row ">

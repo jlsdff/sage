@@ -112,12 +112,12 @@ if(isset($_POST['change-password'])){
             
             <div class="max-w-lg">
               <label for="new-password" class="block mb-2 text-sm font-medium text-gray-900 ">New Password</label>
-              <input type="text" id="new-password" name='new-password'
+              <input type="password" id="new-password" name='new-password'
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " />
             </div>
             <div class="max-w-lg">
               <label for="confirm-password" class="block mb-2 text-sm font-medium text-gray-900 ">Confirm Password</label>
-              <input type="text" id="confirm-password" name='confirm-password'
+              <input type="password" id="confirm-password" name='confirm-password'
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " />
             </div>
             

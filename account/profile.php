@@ -4,7 +4,7 @@ session_start();
 include '../Welcome-content/db.php';
 $user_id = $_SESSION['user_id'];
 
-if(isset($_POST['logout'])){
+if (isset($_POST['logout'])) {
   session_destroy();
   header('Location: ../Welcome-content/login.php');
 }
@@ -40,8 +40,8 @@ if (isset($_POST['update'])) {
   $conn->query($query) or die($conn->error);
 
 }
-if(isset($_POST['update_profile_image'])){
-  if(isset($_FILES['profile_input']) && $_FILES['profile_input']['error'] == 0){
+if (isset($_POST['update_profile_image'])) {
+  if (isset($_FILES['profile_input']) && $_FILES['profile_input']['error'] == 0) {
     $image = addslashes(file_get_contents($_FILES['profile_input']['tmp_name']));
     $query = "UPDATE users SET image = '$image' WHERE id = '$user_id'";
     $conn->query($query) or die($conn->error);
@@ -113,10 +113,10 @@ if(isset($_POST['update_profile_image'])){
 
         <div class='flex items-start justify-start h-full'>
           <!-- Inputs -->
-          <form action="profile.php"  method="post" enctype="multipart/form-data" class='flex flex-col justify-center w-full h-full gap-4'>
+          <form action="profile.php" method="post" enctype="multipart/form-data"
+            class='flex flex-col justify-center w-full h-full gap-4'>
             <div class="max-w-lg">
-              <label for="username"
-                class="block mb-2 text-sm font-medium text-gray-900 ">Username</label>
+              <label for="username" class="block mb-2 text-sm font-medium text-gray-900 ">Username</label>
               <input type="text" id="username" name='username' value="<?php echo $username ?>"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " />
             </div>
@@ -155,25 +155,26 @@ if(isset($_POST['update_profile_image'])){
             </div>
             <div class=''>
               <button class="py-2.5 px-5 bg-primary-200 hover:bg-primary-100 font-bold text-white rounded-md"
-                type="submit" name='update' >Change</button>
+                type="submit" name='update'>Change</button>
             </div>
 
           </form>
           <!-- Profile Image -->
-          <form action="profile.php" enctype="multipart/form-data" method="post" class='w-64 h-full p-4 border-l-4 border-l-slate-400/5'>
+          <form action="profile.php" enctype="multipart/form-data" method="post"
+            class='w-64 h-full p-4 border-l-4 border-l-slate-400/5'>
             <div class="w-full aspect-square">
-              <img class="object-cover w-full rounded-full aspect-square" src="<?php echo $image ?>" alt="" srcset="">
+              <img class="object-cover w-full rounded-full aspect-square " src="<?php echo $image ?>" alt="" srcset="">
             </div>
             <div>
               <label class="block mb-2 text-sm font-medium text-gray-900 " for="file_input">Upload
                 file</label>
               <input
                 class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 "
-                id="file_input" type="file" accept="image/png, image/jpeg" name="profile_input" >
+                id="file_input" type="file" accept="image/png, image/jpeg" name="profile_input">
             </div>
             <div class='mt-4'>
               <button class="py-2.5 px-5 bg-primary-200 hover:bg-primary-100 font-bold text-white rounded-md text-sm"
-                type="submit" name="update_profile_image" >Update Profile Picture</button>
+                type="submit" name="update_profile_image">Update Profile Picture</button>
             </div>
           </form>
         </div>

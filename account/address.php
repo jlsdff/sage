@@ -7,7 +7,7 @@ $user_address = $conn->query("SELECT * FROM addresses WHERE user_id = $user_id")
 
 if ($user_address->num_rows == 0) {
   echo "<script>alert('No address found');</script>";
-}else {
+} else {
   $user_arr = $user_address->fetch_array();
 
   $house_number = $user_arr['house_number'] ? $user_arr['house_number'] : "";
@@ -40,7 +40,7 @@ if (isset($_POST['change_address'])) {
   $city = $_POST['city'];
   $zip_code = $_POST['zip_code'];
 
-  if($user_address->num_rows == 0 || $user_address == null){
+  if ($user_address->num_rows == 0 || $user_address == null) {
     $query = "INSERT INTO addresses (user_id, house_number, street, city, zip_code) VALUES ('$user_id', '$house_number', '$street', '$city', '$zip_code')";
   } else {
     $query = "UPDATE addresses SET house_number = '$house_number', street = '$street', city = '$city', zip_code = '$zip_code' WHERE user_id = '$user_id'";
@@ -114,22 +114,25 @@ if (isset($_POST['change_address'])) {
           <form action="address.php" method="post" class="w-1/3 space-y-4">
             <div class="max-w-lg">
               <label for="house_number" class="block mb-2 text-sm font-medium text-gray-900 ">House #</label>
-              <input type="text" id="house_number" name='house_number' value="<?php echo $house_number; ?>" required
+              <input type="text" id="house_number" name='house_number'
+                value="<?php echo !empty($house_number) ? $house_number : ""; ?>" required
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " />
             </div>
             <div class="max-w-lg">
               <label for="street" class="block mb-2 text-sm font-medium text-gray-900 ">Street</label>
-              <input type="text" id="street" name='street' required value="<?php echo $street; ?>"
+              <input type="text" id="street" name='street' required
+                value="<?php echo !empty($street) ? $street : ""; ?>"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " />
             </div>
             <div class="max-w-lg">
               <label for="city" class="block mb-2 text-sm font-medium text-gray-900 ">City</label>
-              <input type="text" id="city" name='city' required value="<?php echo $city; ?>"
+              <input type="text" id="city" name='city' required value="<?php echo !empty($city) ? $city : ""; ?>"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " />
             </div>
             <div class="max-w-lg">
               <label for="zip_code" class="block mb-2 text-sm font-medium text-gray-900 ">Zip Code</label>
-              <input type="text" id="zip_code" name='zip_code' required value="<?php echo $zip_code; ?>"
+              <input type="text" id="zip_code" name='zip_code' required
+                value="<?php echo !empty($zip_code) ? $zip_code : ""; ?>"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " />
             </div>
             <div class="max-w-lg">

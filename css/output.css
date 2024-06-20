@@ -679,12 +679,12 @@ video {
   top: 0px;
 }
 
-.top-full {
-  top: 100%;
-}
-
 .top-1\/2 {
   top: 50%;
+}
+
+.top-full {
+  top: 100%;
 }
 
 .isolate {
@@ -907,36 +907,12 @@ video {
   height: 2.5rem;
 }
 
-.h-full {
-  height: 100%;
-}
-
-.h-56 {
-  height: 14rem;
-}
-
-.h-screen {
-  height: 100vh;
-}
-
-.h-\[800px\] {
-  height: 800px;
-}
-
-.h-\[500px\] {
-  height: 500px;
-}
-
-.h-\[75000px\] {
-  height: 75000px;
-}
-
 .h-\[700px\] {
   height: 700px;
 }
 
-.h-\[750px\] {
-  height: 750px;
+.h-full {
+  height: 100%;
 }
 
 .min-h-\[500px\] {
@@ -949,10 +925,6 @@ video {
 
 .min-h-screen {
   min-height: 100vh;
-}
-
-.min-h-full {
-  min-height: 100%;
 }
 
 .w-1\/2 {
@@ -1579,6 +1551,10 @@ video {
   gap: 0.5rem;
 }
 
+.gap-3 {
+  gap: 0.75rem;
+}
+
 .gap-4 {
   gap: 1rem;
 }
@@ -2081,6 +2057,11 @@ video {
   border-color: rgb(163 163 163 / var(--tw-border-opacity));
 }
 
+.border-neutral-500 {
+  --tw-border-opacity: 1;
+  border-color: rgb(115 115 115 / var(--tw-border-opacity));
+}
+
 .border-l-slate-400\/5 {
   border-left-color: rgb(148 163 184 / 0.05);
 }
@@ -2513,6 +2494,10 @@ video {
   letter-spacing: 0em;
 }
 
+.tracking-wide {
+  letter-spacing: 0.025em;
+}
+
 .tracking-wider {
   letter-spacing: 0.05em;
 }
@@ -2799,6 +2784,14 @@ video {
 
 .outline-double {
   outline-style: double;
+}
+
+.outline-2 {
+  outline-width: 2px;
+}
+
+.outline-neutral-500 {
+  outline-color: #737373;
 }
 
 .ring {
@@ -3120,8 +3113,8 @@ video {
     display: block;
   }
 
-  .sm\:inline-block {
-    display: inline-block;
+  .sm\:w-1\/2 {
+    width: 50%;
   }
 
   .sm\:w-1\/3 {
@@ -3134,10 +3127,6 @@ video {
 
   .sm\:w-\[40rem\] {
     width: 40rem;
-  }
-
-  .sm\:w-1\/2 {
-    width: 50%;
   }
 
   .sm\:w-\[512px\] {
@@ -3154,10 +3143,6 @@ video {
 
   .sm\:justify-start {
     justify-content: flex-start;
-  }
-
-  .sm\:justify-center {
-    justify-content: center;
   }
 
   .sm\:px-24 {
@@ -3179,9 +3164,18 @@ video {
     text-align: left;
   }
 
+  .sm\:text-center {
+    text-align: center;
+  }
+
   .sm\:text-3xl {
     font-size: 1.875rem;
     line-height: 2.25rem;
+  }
+
+  .sm\:text-4xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
   }
 
   .sm\:text-xl {
@@ -3195,10 +3189,6 @@ video {
 }
 
 @media (min-width: 768px) {
-  .md\:h-96 {
-    height: 24rem;
-  }
-
   .md\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
