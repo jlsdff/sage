@@ -62,7 +62,7 @@
       </div>
     </div>
     <div>
-      <a href="signup2.php" class="getstarted-button"><b> Get Started </b></a>
+      <a href="signup.php" class="getstarted-button"><b> Get Started </b></a>
     </div>
   </body>
 </html>
