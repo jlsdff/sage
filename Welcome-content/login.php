@@ -52,9 +52,9 @@ if (isset($_POST['login'])) {
     <section class="flex items-center w-full px-8 sm:px-32">
       <!-- Form -->
       <div class="flex flex-col w-full gap-4 sm:w-1/2">
-        <div class="flex justify-center w-full sm:justify-start">
+        <a href="welcome.php" class="flex justify-center w-full sm:justify-start">
           <img src="../pic/sagelogo.png" alt="Logo" class="w-[200px]">
-        </div>
+        </a>
         <div class="w-full text-center sm:text-left text-primary-100 ">
           <h1 class="text-2xl font-bold sm:text-4xl">Login</h1>
           <p class="text-lg tracking-wide">Log in to our marketplace and shop sustainably

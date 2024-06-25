@@ -64,5 +64,9 @@
     <div>
       <a href="signup.php" class="getstarted-button"><b> Get Started </b></a>
     </div>
+
+    <footer>
+    <?php include '../footer.php';?>
+    </footer>
   </body>
 </html>
