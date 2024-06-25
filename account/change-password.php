@@ -98,7 +98,7 @@ if(isset($_POST['change-password'])){
 
         <div class='flex items-start justify-start h-full'>
           <!-- Inputs -->
-          <form action="change-password.php" method="post" class='flex flex-col justify-center w-full h-full gap-4'>
+          <form action="change-password.php" method="post" class='flex flex-col justify-start w-full h-full gap-4'>
             <div>
               <?php
                 if(isset($error)){
@@ -113,11 +113,15 @@ if(isset($_POST['change-password'])){
             <div class="max-w-lg">
               <label for="new-password" class="block mb-2 text-sm font-medium text-gray-900 ">New Password</label>
               <input type="password" id="new-password" name='new-password'
+                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}"
+                title="Must contain at least one number and one uppercase and lowercase letter, one special characters, and at least 8 or more characters"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " />
             </div>
             <div class="max-w-lg">
               <label for="confirm-password" class="block mb-2 text-sm font-medium text-gray-900 ">Confirm Password</label>
               <input type="password" id="confirm-password" name='confirm-password'
+                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}"
+                title="Must contain at least one number and one uppercase and lowercase letter, one special characters, and at least 8 or more characters"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " />
             </div>
             

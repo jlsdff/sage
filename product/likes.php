@@ -46,7 +46,11 @@ $products = $conn->query($query);
 
       <?php
 
-      while ($product = $products->fetch_array()) {
+      if($products->num_rows == 0){
+        echo "<h1 class='text-2xl text-center'>You have not liked any product yet</h1>";
+      }
+      
+      while ($product = $products->fetch_array()) {        
 
         $name = $product['name'];
         $product_id = $product['id'];

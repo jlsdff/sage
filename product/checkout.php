@@ -10,17 +10,6 @@ $user_id = $_SESSION['user_id'];
 checkVerification($user_id);
 $total = 0;
 
-
-if (isset($_POST['checkout'])) {
-
-  // foreach($_POST['products'] as $product_id){
-  //   $item = getItem($product_id, $user_id);
-  //   echo $item['name'];
-  // }
-
-} else {
-  header('Location: /sage/product/basket.php');
-}
 ?>
 
 <!DOCTYPE html>
@@ -58,9 +47,9 @@ if (isset($_POST['checkout'])) {
               
 
               <?php
-              if (isset($_POST['checkout'])) {
+              if (isset($_GET['products'])) {
 
-                foreach ($_POST['products'] as $product_id) {
+                foreach (explode(',',$_GET['products']) as $product_id) {
                   $item = getItem($product_id, $user_id);
                   $image = 'data:image/jpeg;base64,' . base64_encode($item['image']);
                   $name = $item['name'];

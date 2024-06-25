@@ -6,7 +6,7 @@ $user_id = $_SESSION['user_id'];
 $user_address = $conn->query("SELECT * FROM addresses WHERE user_id = $user_id");
 
 if ($user_address->num_rows == 0) {
-  echo "<script>alert('No address found');</script>";
+  
 } else {
   $user_arr = $user_address->fetch_array();
 
