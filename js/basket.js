@@ -6,7 +6,6 @@ if(document.querySelector('#num_rows')) {
 
 const itemCheckbox = document.querySelectorAll('input[data-checkbox]');
 
-// If one or more checkboxes are checked, make checkout_button disabled false
 itemCheckbox.forEach(element => {
   element.addEventListener('change', () => {
     const checkedItems = document.querySelectorAll('input[data-checkbox]:checked');

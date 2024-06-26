@@ -18,8 +18,7 @@ function generateCode($user_id){
 function persistCode($user_id, $code){
 
   global $conn;
-
-  // CHECK FOR EXISTING CODE
+  
   $check_code = $conn->query("SELECT * FROM verification_codes WHERE user_id = $user_id");
   if($check_code->num_rows == 0){
     $query = "INSERT INTO verification_codes (user_id, code) VALUES ('$user_id', '$code')";

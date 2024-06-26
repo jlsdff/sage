@@ -21,20 +21,20 @@ if (isset($user_id)) {
   header('Location: ../Welcome-content/login.php');
 }
 
-if(isset($_POST['change-password'])){
+if (isset($_POST['change-password'])) {
 
   $new_password = $_POST['new-password'];
   $confirm_password = $_POST['confirm-password'];
 
-  if($new_password == $confirm_password){
-    $new_password = md5($new_password); 
+  if ($new_password == $confirm_password) {
+    $new_password = md5($new_password);
     $query = "UPDATE users SET password = '$new_password' WHERE id = '$user_id'";
     $conn->query($query) or die($conn->error);
     $is_changed = true;
   } else {
     $error = 'Password does not match';
   }
-  
+
 }
 
 
@@ -101,30 +101,31 @@ if(isset($_POST['change-password'])){
           <form action="change-password.php" method="post" class='flex flex-col justify-start w-full h-full gap-4'>
             <div>
               <?php
-                if(isset($error)){
-                  echo "<p class='text-red-500'>$error</p>";
-                } 
-                if(isset($is_changed)){
-                  echo "<p class='text-green-500'>Password has been changed</p>";
-                }
+              if (isset($error)) {
+                echo "<p class='text-red-500'>$error</p>";
+              }
+              if (isset($is_changed)) {
+                echo "<p class='text-green-500'>Password has been changed</p>";
+              }
               ?>
             </div>
-            
+
             <div class="max-w-lg">
               <label for="new-password" class="block mb-2 text-sm font-medium text-gray-900 ">New Password</label>
-              <input type="password" id="new-password" name='new-password'
+              <input type="password" id="new-password" name='new-password' required
                 pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}"
                 title="Must contain at least one number and one uppercase and lowercase letter, one special characters, and at least 8 or more characters"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " />
             </div>
             <div class="max-w-lg">
-              <label for="confirm-password" class="block mb-2 text-sm font-medium text-gray-900 ">Confirm Password</label>
-              <input type="password" id="confirm-password" name='confirm-password'
+              <label for="confirm-password" class="block mb-2 text-sm font-medium text-gray-900 ">Confirm
+                Password</label>
+              <input type="password" id="confirm-password" name='confirm-password' required
                 pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}"
                 title="Must contain at least one number and one uppercase and lowercase letter, one special characters, and at least 8 or more characters"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " />
             </div>
-            
+
             <div class='mt-4'>
               <button class="py-2.5 px-5 bg-primary-200 hover:bg-primary-100 font-bold text-white rounded-md text-sm"
                 type="submit" name="change-password">Change Password</button>

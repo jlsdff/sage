@@ -48,11 +48,6 @@ WHERE cart.user_id = $user_id
 
 $carts = $conn->query($query);
 
-if ($carts->num_rows > 0) {
-
-
-}
-
 ?>
 
 
@@ -152,7 +147,7 @@ if ($carts->num_rows > 0) {
         </div>
 
         <div class="absolute left-1/2 top-full">
-          <button id="checkout_button" type="submit" name="checkout" class="px-5 py-2.5 bg-primary-200 text-white rounded-md disabled:bg-gray-500 disabled:text-gray-100 disabled:cursor-not-allowed " disabled="true">
+          <button id="checkout_button" type="submit" name="checkout" class="px-5 py-2.5 bg-primary-200 text-white rounded-md disabled:bg-gray-500/50 disabled:text-gray-100 disabled:cursor-not-allowed " disabled="true">
             Check out
           </button>
         </div>
