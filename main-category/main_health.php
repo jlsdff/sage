@@ -22,6 +22,10 @@ $result = $conn->query($query);
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" 
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -93,24 +97,9 @@ $result = $conn->query($query);
         ?>
     </div>
 
-
-    <!-----ANOTHER PRODUCTS---->
-    <div class="container2">
-        <!-- <div class="item">
-                <a href="../PRODUCT/Body-Loofah.php"><img src="../WEBDEV_PICS/18.png"></a>
-                <div class="card-text">
-                    <a href="../PRODUCT/Body-Loofah.php">Body Loofah</a>
-                    <a href="../PRODUCT/Body-Loofah.php">
-                        <p>By: Mae Cares</p>
-                    </a>
-                    <span>₱500</span>
-                    <label> | Price</label>
-                </div>
-            </div> -->
-
-
-
-    </div>
+    <?php
+    include '../footer.php';
+     ?>
 </body>
 
 </html>

@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>sage eco-shop | Main</title>
     <link rel="stylesheet" type="text/css" href="../css/content.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../css/footer.css">
 </head>
 
 <body>
@@ -27,12 +33,12 @@
         </div>
 
         <!------SEARCH PANEL----->
-        
+
         <div class="navbar-search">
             <input type="text" name="text" placeholder="Type to search">
 
         </div>
-        
+
         <!-----ADD TO CART, ACCOUNT, FAVORITES---->
         <div class="navbar-links-1">
             <a href="/sage/product/likes.php"><img src="../WEBDEV_PICs/9 (1).png">Likes</a>
@@ -42,16 +48,16 @@
     </div>
 
 
-<!----MAIN CONTENT---->
+    <!----MAIN CONTENT---->
     <div class="body-1">
         <div class="text">
-        <h1>Save Earth with <br>
-            Reusable Lunchboxes.</h1>
+            <h1>Save Earth with <br>
+                Reusable Lunchboxes.</h1>
         </div>
     </div>
 
-            
-<!----CARDBOARD----->
+
+    <!----CARDBOARD----->
 
     <div class="card-container">
         <div class="card">
@@ -74,14 +80,13 @@
                 <a href="main_clothing.php">Clothing</a>
             </div>
         </div>
-        
+
     </div>
 
-    <footer>
-    <?php include '../footer.php';?>
-    </footer>
- 
-</body>
-</html>
+    <?php
+    include '../footer.php';
+    ?>
 
-    
+</body>
+
+</html>

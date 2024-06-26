@@ -14,6 +14,13 @@ if (isset($_POST['decrement'])) {
   decrementItemCart($id);
 }
 
+if(isset($_POST['checkout'])){
+
+  // Redirect to checkout.php together with the selected products
+  header('Location: checkout.php?products=' . implode(',', $_POST['products']));
+
+}
+
 if (isset($_POST['delete'])) {
   $id = $_POST['delete'];
   deleteItemCart($id);
@@ -41,11 +48,6 @@ WHERE cart.user_id = $user_id
 
 $carts = $conn->query($query);
 
-if ($carts->num_rows > 0) {
-
-
-}
-
 ?>
 
 
@@ -66,11 +68,23 @@ if ($carts->num_rows > 0) {
   </header>
 
   <main>
+    
+    <?php 
+    
+    if($carts->num_rows == 0){
+      echo "<input type='text' id='num_rows' value='true' class='hidden' >";
+    }
+    ?>
 
-    <section class="px-8 py-4 sm:px-24 sm:py-16">
+    <!-- No Items -->
+    <div id="no_item" class="flex items-center justify-center hidden h-screen">
+      <h1 class="text-2xl font-bold text-center text-red-500"> Basket is empty 😭 </h1>
+    </div>
+
+    <section id="basket_table" class="px-8 py-4 sm:px-24 sm:py-16">
 
       <!-- TABLE HEADER -->
-      <form action="checkout.php" method="post" class="relative table w-full">
+      <form action="basket.php" method="post" class="relative table w-full">
         <div class="table-header-group">
           <div class="table-row">
             <div class="table-cell font-bold text-left ">
@@ -87,7 +101,9 @@ if ($carts->num_rows > 0) {
         <!-- Table Body -->
         <div class="table-row-group spacing-y-2 ">
           <?php
+          
           while ($product = $carts->fetch_array()) {
+            
             $id = $product['id'];
             $product_id = $product['product_id'];
             $product_name = $product['name'];
@@ -97,7 +113,7 @@ if ($carts->num_rows > 0) {
 
             echo "
             <div class='table-row __item'>
-            <div class='table-cell text-left align-middle'><input type='checkbox' name='products[]' value='{$product_id}' id=''></div>
+            <div class='table-cell text-left align-middle'><input type='checkbox' name='products[]' value='{$product_id}' id='' data-checkbox></div>
             <div class='table-cell text-left align-middle'>
               <div class='flex items-center justify-start gap-2 min-w-60'>
                 <div class='object-contain w-32 aspect-square'>
@@ -131,7 +147,7 @@ if ($carts->num_rows > 0) {
         </div>
 
         <div class="absolute left-1/2 top-full">
-          <button type="submit" name="checkout" class="px-5 py-2.5 bg-primary-200 text-white rounded-md ">
+          <button id="checkout_button" type="submit" name="checkout" class="px-5 py-2.5 bg-primary-200 text-white rounded-md disabled:bg-gray-500/50 disabled:text-gray-100 disabled:cursor-not-allowed " disabled="true">
             Check out
           </button>
         </div>

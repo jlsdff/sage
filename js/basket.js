@@ -1,4 +1,26 @@
 
+if(document.querySelector('#num_rows')) {
+  document.querySelector('#basket_table').classList.add('hidden');
+  document.querySelector('#no_item').classList.remove('hidden');
+}
+
+const itemCheckbox = document.querySelectorAll('input[data-checkbox]');
+
+itemCheckbox.forEach(element => {
+  element.addEventListener('change', () => {
+    const checkedItems = document.querySelectorAll('input[data-checkbox]:checked');
+    const checkoutButton = document.querySelector('#checkout_button');
+    checkoutButton.disabled = checkedItems.length === 0;
+  });
+});
+
+
+
+
+document.querySelectorAll("input[data-checkbox]").forEach(element => {
+  
+});
+
 const items = document.querySelectorAll('.__item');
 
 items.forEach(element => {

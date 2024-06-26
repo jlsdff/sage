@@ -17,27 +17,10 @@ if (empty($product_id)) {
   header('location:/sage/main-category/main_content.php');
 }
 
-if (isset($_POST['basket'])) {
-  echo $_POST['basket'];
-
-  $quantity = $_POST['quantity'];
-
-  echo "USER ID: $user_id <br>";
-  echo "PRODUCT ID: $product_id <br>";
-  echo "QUANTITY: $quantity <br>";
-
-  $query = "INSERT INTO cart (user_id, product_id, quantity) VALUES ($user_id ,$product_id, $quantity)";
-
-  if ($conn->query($query) === TRUE) {
-    echo "New record created successfully";
-  } else {
-    echo "Error: " . $query . "<br>" . $conn->error;
-  }
-}
-
 if (isset($_POST['buy'])) {
-  echo "BUY NOW";
-  echo $_POST['buy'];
+  $quantity = $_POST['quantity'];
+  $conn->query("INSERT INTO cart (user_id, product_id, quantity) VALUES ($user_id, $product_id, $quantity)") or die($conn->error);
+  header('Location: checkout.php?products=' . $product_id);
 }
 
 if (isset($_POST['like'])) {
@@ -45,7 +28,7 @@ if (isset($_POST['like'])) {
   include '../utils/likes.php';
 
   $query = add_to_likes($product_id, $user_id);
-  
+
 }
 
 
@@ -76,10 +59,34 @@ $image = 'data:image/jpeg;base64,' . base64_encode($product['image']);
   <link href="../css/output.css" rel="stylesheet" />
 </head>
 
-<body>
+<body class="relative">
+  <?php
+  if (isset($_POST['basket'])) {
+    $quantity = $_POST['quantity'];
+
+    $query = "INSERT INTO cart (user_id, product_id, quantity) VALUES ($user_id ,$product_id, $quantity)";
+
+    if ($conn->query($query) === TRUE) {
+      echo '
+      <div id="toaster"
+      class="fixed flex justify-start w-64 gap-2 px-8 py-4 text-white transition-all duration-300 transform -translate-x-full border rounded-md opacity-0 bg-primary-100 bottom-16 left-16 border-neutral-500 ">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+          <path fill-rule="evenodd"
+          d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z"
+          clip-rule="evenodd" />
+        </svg>
+        <h2 class="text-lg font-bold">Added to basket</h2>
+      </div>';
+    } else {
+      echo "Error: " . $query . "<br>" . $conn->error;
+    }
+  }
+  ?>
   <div>
     <?php include '../header-product.php'; ?>
   </div>
+
+
 
   <main class="w-screen min-h-screen gap-4 px-8 py-4 sm:px-24 sm:py-16">
     <section class="flex flex-col items-center justify-center gap-4 sm:flex-row">
@@ -104,23 +111,23 @@ $image = 'data:image/jpeg;base64,' . base64_encode($product['image']);
             <h1 class="text-2xl font-bold text-primary-200">
               <?php echo $name; ?>
             </h1>
-            <form action="product.php?id=<?php echo $product_id?>" method="post" id="like_button" class="block cursor-pointer">
-              <button type="submit" name="like" value="like" >
-                <svg xmlns="http://www.w3.org/2000/svg" fill="<?php 
-                  $query = "SELECT * FROM likes WHERE user_id={$user_id} AND product_id={$product_id}";
-                  $result = $conn->query($query);
+            <form action="product.php?id=<?php echo $product_id ?>" method="post" id="like_button"
+              class="block cursor-pointer">
+              <button type="submit" name="like" value="like">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="<?php
+                $query = "SELECT * FROM likes WHERE user_id={$user_id} AND product_id={$product_id}";
+                $result = $conn->query($query);
 
-                  if ($result->num_rows > 0) {
-                    echo "currentColor";
-                  } else {
-                    echo "none";
-                  }
-                ?>" viewBox="0 0 24 24" stroke-width="1.5"
-                  stroke="currentColor" class="size-6 <?php 
-                  if($result->num_rows > 0 ) {
-                    echo "cursor-not-allowed opacity-50";
-                  }
-                  ?>">
+                if ($result->num_rows > 0) {
+                  echo "currentColor";
+                } else {
+                  echo "none";
+                }
+                ?>" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 <?php
+                if ($result->num_rows > 0) {
+                  echo "cursor-not-allowed opacity-50";
+                }
+                ?>">
                   <path stroke-linecap="round" stroke-linejoin="round"
                     d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
                 </svg>

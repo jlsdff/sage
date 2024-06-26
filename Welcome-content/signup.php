@@ -94,7 +94,7 @@ if (isset($_POST['signup'])) {
               <label for="password" class="block mb-2 text-sm font-medium text-gray-900 ">Password</label>
               <input name="password" type="password" id="password" placeholder="password"
                 pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}"
-                title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+                title="Must contain at least one number and one uppercase and lowercase letter, one special characters, and at least 8 or more characters"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                 required />
             </div>
